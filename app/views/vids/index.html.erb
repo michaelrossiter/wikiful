@@ -1,0 +1,33 @@
+<h1>Listing vids</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Youtube url</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vids.each do |vid| %>
+      <tr>
+        <td><%= vid.title %></td>
+        <td><%= vid.description %></td>
+        <td><%= vid.youtube_url %></td>
+        <td><%= vid.user_id %></td>
+        <td><%= link_to 'Show', vid %></td>
+        <td><%= link_to 'Edit', edit_vid_path(vid) %></td>
+        <td><%= link_to 'Destroy', vid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vid', new_vid_path %>
