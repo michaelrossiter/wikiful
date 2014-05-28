@@ -1,6 +1,7 @@
 Casevids::Application.routes.draw do
   
   resources :vids
+  resources :users
 
   root  'static_pages#home'
   
