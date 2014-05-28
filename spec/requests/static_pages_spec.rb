@@ -9,9 +9,9 @@ describe "Static pages" do
       expect(page).to have_content('CaseVids')
     end
   
-    it "should have the right title" do
+    it "should have the base title" do
       visit '/'
-      expect(page).to have_title("CaseVids | Home")
+      expect(page).to have_title("CaseVids")
     end
   end
 
@@ -38,6 +38,11 @@ describe "Static pages" do
     it "should have the content 'Contact'" do
       visit '/contact'
       expect(page).to have_content('Contact')
+    end
+  
+    it "should have the title 'Contact'" do
+      visit '/contact'
+      expect(page).to have_title("CaseVids | Contact")
     end
   end
 
