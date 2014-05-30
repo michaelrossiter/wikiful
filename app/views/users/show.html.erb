@@ -4,7 +4,17 @@
       <h1>
         <%= @user.name %>
       </h1>
-        <%= gravatar_for @user %>
+        <center>
+        <%= gravatar_for @user %><br>
+        <%= @user.school %>,&nbsp; <%= @user.year %><br>
+        <%= @user.user_type %>
+        </center>
+
+        <div>
+        	<%= link_to "Upload a new CaseVid", "#" %><br>
+        	<%= link_to "Settings", edit_user_path(current_user) %>
+        </div>
+    
     </section>
   </aside>
 </div>
