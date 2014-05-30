@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      sign_in @user
       flash[:success] = "Your account was successfully created. Welcome to CaseVids!"
       redirect_to @user
     else

@@ -10,10 +10,10 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }  
-  validates :year, presence: true, inclusion: { in: 1999..2020 }
+  validates :year, presence: true, inclusion: { in: 1950..2020 }
 
 
-# Authentication methods
+# Authentication/session methods
   def User.new_remember_token
   	SecureRandom.urlsafe_base64
   end
@@ -24,12 +24,11 @@ class User < ActiveRecord::Base
 
 
 
-
 # Private methods
   private
-	  def create_remember_token
+	  # Create remember token (cookie) using above method (securerandom.urlsafe_base64)
+    def create_remember_token
 	  	self.remember_token = User.digest(User.new_remember_token)
 	  end
 
-
-end
+  end
