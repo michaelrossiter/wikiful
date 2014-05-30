@@ -1,0 +1,31 @@
+<div class="row" style="background: #EEE;">
+	<div class="span2">
+    	<div id="profile_label"><b><%= link_to user.name, user %></b></div>
+		<center><%= gravatar_for user %></center><br>
+		<% if current_user.admin? && !current_user?(user) %>
+		<%= link_to "ADMIN: Delete User", user, method: :delete,
+                                  data: { confirm: "Are you sure you want to PERMANENTLY delete this user?" } %>
+         <% end %>
+	</div>
+	<div class="span4">
+		<table>
+		<tr>
+			<td>Type:</td><td> Recruiter/Coach/Student [Add]</td>
+		</tr>
+		<tr>
+			<td>School:</td><td>Haas/HBS/GSB/Tuck [Add]</td>
+		</tr>
+		<tr>
+			<td>Year:</td><td><%= user.year %></td>
+		</tr>
+		<tr>
+			<td>CVPoints:</td><td><%= rand(999).to_s %> [Add]</td>
+		</tr>
+		</table>
+	</div>
+	<div class="span6">
+		<%= link_to (image_tag "videoico.png"), "#" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to (image_tag "videoico.png"), "#" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to (image_tag "videoico.png"), "#" %><br>
+		<span class="pull-right"><%= link_to "See all CaseVids shared by #{user.name}", user %></span>
+	</div>
+</div>
+<div style="margin-top:10px;">

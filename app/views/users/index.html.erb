@@ -1,31 +1,25 @@
-<h1>Listing users</h1>
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Year</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<span class="pull-right"><%= will_paginate %></span>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.year %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row" style="margin-top:100px;">
+	<div class="span2">
+		User List
+	</div>
+	<div class="span4">
+		User Profile Info
+	</div>
+	<div class="span6">
+		CaseVids
+	</div>
+</div>
 
-<br>
+<div class="users">
+  
+  <%= render @users %>
+</div>
 
-<%= link_to 'New User', new_user_path %>
+<span class="pull-right"><%= will_paginate %></span>
+
+<div style="margin-bottom:80px;"></div>
