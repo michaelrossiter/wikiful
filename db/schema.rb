@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140530215231) do
     t.string   "remember_token"
     t.boolean  "admin",           default: false
     t.string   "school"
-    t.string   "user_type",       default: "student"
+    t.string   "user_type",       default: "Student"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

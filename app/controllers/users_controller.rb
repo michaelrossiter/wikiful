@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Your account was successfully created. Welcome to CaseVids!"
-      redirect_back_or user
+      redirect_back_or @user
     else
       flash.now[:error] = 'Invalid email/password combination'
       render 'new'
