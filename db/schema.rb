@@ -27,27 +27,18 @@ ActiveRecord::Schema.define(version: 20140921023522) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "year"
+    t.string   "department"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
     t.string   "school"
-    t.string   "user_type",       default: "Student"
+    t.string   "user_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
   add_index "users", ["user_type"], name: "index_users_on_user_type"
-
-  create_table "vids", force: true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "youtube_url"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end
