@@ -6,15 +6,20 @@
       </h1>
         <center>
         <%= gravatar_for @user %><br>
-        <%= @user.school %>,&nbsp; <%= @user.year %><br>
+        <%= @user.school %>,&nbsp; <%= @user.department %><br>
         <%= @user.user_type %>
         </center>
 
         <div>
-        	<%= link_to "Upload a new CaseVid", "#" %><br>
+        	<%= link_to "Create a New Wikiful Article", new_article_path %><br>
         	<%= link_to "Settings", edit_user_path(current_user) %>
         </div>
-    
     </section>
   </aside>
+
+  <div class="row">
+    <div class="span4">...</div>
+    <div class="span8">...</div>
+  </div>
+
 </div>

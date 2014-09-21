@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Your account was successfully created. Welcome to CaseVids!"
+      flash[:success] = "Your account was successfully created. Welcome to Wikiful!"
       redirect_back_or @user
     else
       flash.now[:error] = 'Invalid email/password combination'
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :year, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :school, :department, :password, :password_confirmation)
     end
 
     def signed_in_user

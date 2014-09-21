@@ -8,24 +8,14 @@
          <% end %>
 	</div>
 	<div class="span4">
-		<table>
-		<tr>
-			<td>Type:</td><td> <%= user.user_type %></td>
-		</tr>
-		<tr>
-			<td>School:</td><td><%= user.school %></td>
-		</tr>
-		<tr>
-			<td>Year:</td><td><%= user.year %></td>
-		</tr>
-		<tr>
-			<td>CVPoints:</td><td><%= rand(999).to_s %> [Add]</td>
-		</tr>
-		</table>
+		<%= user.email %>
+		<br>
+		<%= user.school %>
+		<br>
+		<%= user.department %>
 	</div>
 	<div class="span6">
-		<%= link_to (image_tag "videoico.png"), "#" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to (image_tag "videoico.png"), "#" %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to (image_tag "videoico.png"), "#" %><br>
-		<span class="pull-right"><%= link_to "See all CaseVids shared by #{user.name}", user %></span>
+		<%= link_to "See all Articles authored by #{user.name}", user %></span>
 	</div>
 </div>
 <div style="margin-top:10px;">

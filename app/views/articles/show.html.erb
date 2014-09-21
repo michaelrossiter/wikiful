@@ -1,8 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<div class="btn pull-right">
+<%= link_to 'Back', articles_path %>
+</div>
+
 <p>
   <strong>Title:</strong>
   <%= @article.title %>
+<span class="btn">
+<%= link_to 'Edit', edit_article_path(@article) %>
+</span>
 </p>
 
 <p>
@@ -11,14 +18,15 @@
 </p>
 
 <p>
-  <strong>Text:</strong>
+  <strong>Author:</strong>
+  <%= @article.user %>
+</p>
+
+
+<p>
+  <strong>Article:</strong>
   <%= @article.text %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @article.user_id %>
-</p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+

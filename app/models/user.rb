@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }  
-  validates :year, presence: true, inclusion: { in: 1950..2020 }
+  # validates :school, :inclusion => {:in => ["UC Berkeley", "Harvard University", "Stanford University", "Dartmouth College", "University of Chicago", "University of Pennsylvania", "MIT", "Northwestern University", "Columbia University", "NYU", "University of Michigan", "University of Virginia", "Yale University", "Duke University", "University of Texas", "UCLA", "Cornell", "Carnegie Mellon", "UNC", "Emory", "Indiana", "Washington University", "Georgetown", "Norte Dame", "UW", "CIT", "Johns Hopkins", "Other"]}
 
 
 # Authentication/session methods
