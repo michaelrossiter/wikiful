@@ -8,10 +8,11 @@
     <%= f.text_field :email %>
 
     <%= f.label :school %>
-    <%= f.select :school, options_for_select(["Berkeley Haas", "Harvard Business School", "Stanford GSB", "Dartmouth Tuck", "Chicago Booth", "UPenn Wharton", "MIT Sloan", "Northwestern Kellogg", "Columbia GSB", "NYU Stern", "Michigan Ross", "UVA Darden", "Yale SOM", "Duke Fuqua", "UT McCombs", "UCLA Anderson", "Cornell Johnson", "Carnegie Mellon Tepper", "UNC Kenan-Flagler", "Emory Goizueta", "Indiana Kelley", "WashU Olin", "Georgetown McDonough", "Norte Dame Mendoza", "UW Foster", "Other"].sort) %>
+    <%= f.select :school, options_for_select(["UC Berkeley", "Harvard University", "Stanford University", "Dartmouth College", "University of Chicago", "University of Pennsylvania", "MIT", "Northwestern University", "Columbia University", "NYU", "University of Michigan", "University of Virginia", "Yale University", "Duke University", "University of Texas", "UCLA", "Cornell", "Carnegie Mellon", "UNC", "Emory", "Indiana", "Washington University", "Georgetown", "Norte Dame", "UW", "CIT", "Johns Hopkins", "Other"].sort) %>
 
-    <%= f.label :year, "Class Year" %>
-    <%= f.select :year, options_for_select(%w[ 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 ]) %>
+    <%= f.label :department %>
+    <%= f.select :department, options_for_select(["Astronomy", "Biology", "Chemistry", "Education", "Finance", "Geography", "History", "Mathematics", "Neurology", "Other", "Physics", "Psychology", "Sociology", "Political Science", "Economics", "Business", "Law", "Computer Science", "Engineering"].sort) %>
+
 
     <%= f.label :password %>
     <%= f.password_field :password %>

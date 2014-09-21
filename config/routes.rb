@@ -1,5 +1,6 @@
 Casevids::Application.routes.draw do
   
+  resources :articles
   resources :vids
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
@@ -13,7 +14,6 @@ Casevids::Application.routes.draw do
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
-  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
