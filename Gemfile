@@ -55,7 +55,7 @@ gem 'sdoc', '0.3.20', :group => :doc, require: false
 gem 'rails_12factor', '0.0.2', :group => :production
 
 # Unicorn for production webserver
-# gem 'unicorn', :group => :production
+gem 'unicorn', :group => :production
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
