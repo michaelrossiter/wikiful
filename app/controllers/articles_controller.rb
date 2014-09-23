@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
-    @articles_category = Article.order(:category)
+    @articles_category = Article.order(:category) 
   end
 
   # GET /articles/1
@@ -17,7 +17,8 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @user = current_user
+    @article = current_user.articles.new
   end
 
   # GET /articles/1/edit
@@ -27,7 +28,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
 
     respond_to do |format|
       if @article.save
