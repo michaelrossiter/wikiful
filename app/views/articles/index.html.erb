@@ -2,22 +2,39 @@
 
   <div class="row-fluid">
       <div class="span8">
-        Category & search space
-      </div>
+
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+      Select Category
+    <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+    </ul>
+  </div>
+</div>
+
+
       <div class="span4 btn-group"> 
         <div class="pull-right"><button type="button" class="btn btn-primary"><%= link_to 'Contribute a New Article', new_article_path %> </btn></div>
       </div>
   </div>
 
+
 <hr>
   <div class="row-fluid">
-    <div class="span4 well center">Title</div>
-    <div class="span4 well center">Category</div>
-    <div class="span4 well center">Author</div>
+    <div class="span4 well center"><%= sortable "title" %></div>
+    <div class="span4 well center"><%= sortable "category" %></div>
+    <div class="span4 well center"><%= link_to "Author", "user" %></div>
   </div>
-    <% @articles.each do |article| %>
+  
+  <% for article in @articles %>
   <div class="row-fluid">
-    <div class="span4"><%= link_to article.title, article %></div>
+    <div class="span4"><%= link_to article.title, article.title %></div>
     <div class="span4 center"><%= article.category %></div>
     <div class="span4 center"><%= article.user.email %></div>
   </div>

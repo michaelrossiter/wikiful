@@ -1,12 +1,14 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  # before_action :signed_in_user, only: [:create, :edit, :update]
+  before_action :signed_in_user, only: [:create, :edit, :update]
   # before_action :correct_user,   only: [:edit, :update]
   # before_action :admin_user,     only: :destroy
   # GET /articles
   # GET /articles.json
+  helper_method :sort_column, :sort_direction
+
   def index
-    @articles = Article.all
+    @articles = Article.order(sort_column + " " + sort_direction)
     @articles_category = Article.order(:category)
     @users = User.all
   end
@@ -20,8 +22,6 @@ class ArticlesController < ApplicationController
   def new
  # HEAD
     @user = current_user
-# =======
-# >>>>>>> 345deeb79aefb0446b0b2b74642657473eb5f375
     @article = current_user.articles.new
   end
 
@@ -32,11 +32,8 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-# <<<<<<< HEAD
     @article = current_user.articles.new(article_params)
-# =======
     @article = current_user.articles.create(article_params)
-# >>>>>>> 345deeb79aefb0446b0b2b74642657473eb5f375
 
     respond_to do |format|
       if @article.save
@@ -82,6 +79,17 @@ class ArticlesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :category, :text, :user_id)
+    end
+    
+    def signed_in_user  
+    end
+
+    def sort_column
+      Article.column_names.include?(params[:sort]) ? params[:sort] : "title"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 
 end
