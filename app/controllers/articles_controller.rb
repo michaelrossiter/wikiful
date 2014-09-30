@@ -7,7 +7,9 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
-    @articles_category = Article.order(:category) 
+    @articles_category = Article.order(:category)
+    @users = User.all
+     
   end
 
   # GET /articles/1
@@ -17,10 +19,10 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-<<<<<<< HEAD
+ # HEAD
     @user = current_user
-=======
->>>>>>> 345deeb79aefb0446b0b2b74642657473eb5f375
+# =======
+# >>>>>>> 345deeb79aefb0446b0b2b74642657473eb5f375
     @article = current_user.articles.new
   end
 
@@ -31,11 +33,11 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-<<<<<<< HEAD
+# <<<<<<< HEAD
     @article = current_user.articles.new(article_params)
-=======
+# =======
     @article = current_user.articles.create(article_params)
->>>>>>> 345deeb79aefb0446b0b2b74642657473eb5f375
+# >>>>>>> 345deeb79aefb0446b0b2b74642657473eb5f375
 
     respond_to do |format|
       if @article.save
