@@ -8,10 +8,10 @@
     <%= f.text_field :email %>
 
     <%= f.label :school %>
-    <%= f.select :school, options_for_select(SCHOOLs.sort) %>
+    <%= f.select :school, options_for_select(SCHOOLS.sort) %>
 
     <%= f.label :department %>
-    <%= f.select :department, options_for_select(["Astronomy", "Biology", "Chemistry", "Education", "Finance", "Geography", "History", "Mathematics", "Neurology", "Other", "Physics", "Psychology", "Sociology", "Political Science", "Economics", "Business", "Law", "Computer Science", "Engineering"].sort) %>
+    <%= f.select :department, options_for_select(DEPARTMENTS.sort) %>
 
 
     <%= f.label :password %>
