@@ -9,7 +9,6 @@ class ArticlesController < ApplicationController
     @articles = Article.all
     @articles_category = Article.order(:category)
     @users = User.all
-     
   end
 
   # GET /articles/1

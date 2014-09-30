@@ -10,7 +10,7 @@
   <div class="row-fluid">
     <div class="span4"><%= link_to article.title, article %></div>
     <div class="span4 center"><%= article.category %></div>
-    <div class="span4 center"><%= article.user %></div>
+    <div class="span4 center"><%= article.user.email %></div>
   </div>
   <% end %>
 
