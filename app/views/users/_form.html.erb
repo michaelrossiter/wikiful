@@ -8,7 +8,7 @@
     <%= f.text_field :email %>
 
     <%= f.label :school %>
-    <%= f.select :school, options_for_select(["UC Berkeley", "Harvard University", "Stanford University", "Dartmouth College", "University of Chicago", "University of Pennsylvania", "MIT", "Northwestern University", "Columbia University", "NYU", "University of Michigan", "University of Virginia", "Yale University", "Duke University", "University of Texas", "UCLA", "Cornell", "Carnegie Mellon", "UNC", "Emory", "Indiana", "Washington University", "Georgetown", "Norte Dame", "UW", "CIT", "Johns Hopkins", "Other"].sort) %>
+    <%= f.select :school, options_for_select(SCHOOLs.sort) %>
 
     <%= f.label :department %>
     <%= f.select :department, options_for_select(["Astronomy", "Biology", "Chemistry", "Education", "Finance", "Geography", "History", "Mathematics", "Neurology", "Other", "Physics", "Psychology", "Sociology", "Political Science", "Economics", "Business", "Law", "Computer Science", "Engineering"].sort) %>
