@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :signed_in_user, only: [:create, :edit, :update]
+  before_action :check_auth, only: [:edit, :update, :destroy]
   # before_action :correct_user,   only: [:edit, :update]
   # before_action :admin_user,     only: :destroy
   # GET /articles
@@ -27,6 +28,8 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @article = Article.find(params[:id])
+
   end
 
   # POST /articles
@@ -90,6 +93,13 @@ class ArticlesController < ApplicationController
 
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
+    def check_auth
+      if session[:user_id] != @article.user_id
+        flash[:notice] = "Sorry, you cannot edit this article."
+        redirect_to(articles_path)
+      end
     end
 
 end

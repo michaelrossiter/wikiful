@@ -6,8 +6,8 @@ describe "Static pages" do
 
   describe "Home page" do
     before { visit root_path }
-    it { should have_content('CaseVids') }
-    it { should have_title('CaseVids') }
+    it { should have_content('Wikiful') }
+    it { should have_title('Wikiful') }
     it { should_not have_title('| Home') }
     end
 
@@ -33,7 +33,7 @@ describe "Static pages" do
     end
   
     it "should have the title 'Contact'" do
-      expect(page).to have_title("CaseVids | Contact")
+      expect(page).to have_title("Wikiful | Contact")
     end
   end
 
