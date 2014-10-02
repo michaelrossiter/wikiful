@@ -19,11 +19,13 @@ categories = Category.create([
 
 # create 50 articles, with random titles, 250 words of content, and
 # randomly assign one of the categories above to each article
+
 for i in 0..49
 	title = Faker::Lorem.sentence(rand(2..10)).chomp('.')
 	text = Faker::Lorem.paragraph(word_count=250)
+	user = rand(1..40)
 
 	# randomly assign one of the categories we just created 
 	category = Category.first(offset: rand(Category.count)) 
-	a = Article.create(title: title, text: text, categories: [category,])
+	a = Article.create(title: title, category: category, text: text, user_id: user)
 end
