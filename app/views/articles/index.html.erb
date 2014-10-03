@@ -45,7 +45,7 @@
   
   <% for article in @articles %>
   <div class="row-fluid">
-    <div class="span4"><%= link_to article.title, article.title %></div>
+    <div class="span4"><%= link_to article.title, article_path(:id) %></div>
     <div class="span4 center"><%= article.category %></div>
     <div class="span4 center"><%= article.user.name %></div>
     </div>

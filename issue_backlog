@@ -7,7 +7,8 @@ articles#index
 -getting category.category_name and not category.id to show up
 -cannot sort by author email address - application_helper code is not working properly
 -"Select Category" dropdown feature not built
--In general I think javascript may not be loading
+-In general I think javascript may not be loading, at least on my machine
+-Link to article in the list is broken because I'm not sure how to route it properly
 
 articles#new
 -form to submit looks better, but will not submit, getting error "Category can't be blank" with 0, 1, or multiple categories selected.
