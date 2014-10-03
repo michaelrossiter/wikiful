@@ -6,6 +6,6 @@ class Article < ActiveRecord::Base
   validates :user, presence: true
  
   validates :title, presence: true, length: {maximum: 140}
-  validates :category, presence: true
+  validates :categories, :presence => true
   validates :text, presence: true
 end
