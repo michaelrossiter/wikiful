@@ -1,10 +1,10 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
-<span class="pull-right"><%= will_paginate %></span>
+<span class="pull-right"><%= will_paginate @users %></span>
 
 
-<div class="users">  
+<div class="users" style="margin-top:100px">  
   <%= render @users %>
 </div>
 

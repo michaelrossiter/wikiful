@@ -1,0 +1,19 @@
+
+
+Issue Backlog:
+
+articles#index
+-will paginate doesn't work for some reason
+-getting category.category_name and not category.id to show up
+-cannot sort by author email address - application_helper code is not working properly
+-"Select Category" dropdown feature not built
+-In general I think javascript may not be loading
+
+articles#new
+-form to submit looks better, but will not submit, getting error "Category can't be blank" with 0, 1, or multiple categories selected.
+
+user#show
+-add an image or bulleted list to the user's articles
+-fix text styling on submit new article button
+-not able to show a list of the user's posts...RESOLVED
+-the way a user's posts is show is UGLY...RESOLVED

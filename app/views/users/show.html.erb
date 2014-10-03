@@ -1,25 +1,35 @@
 <% provide(:title, @user.name) %>
+
+<div class="row">
   <aside class="span4">
     <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
-        <center>
-        <%= gravatar_for @user %><br>
-        <%= @user.school %>,&nbsp; <%= @user.department %><br>
-        <%= @user.user_type %>
-        </center>
+         
+        <%= gravatar_for @user %>
+              <%= @user.name %><br>
+              <%= @user.school %><br>
+              <%= @user.department %><br>
 
         <div>
-        	<%= link_to "Create a New Wikiful Article", new_article_path %><br>
-        	<%= link_to "Settings", edit_user_path(current_user) %>
+          <div style="margin-top:20px;margin-bottom:20px">
+          	<button class="btn btn-primary"><%= link_to "Create a New Wikiful Article", new_article_path %></button>
+          </div>
+          <div style="margin-top:20px">
+        	 <button class="btn btn-default"><%= link_to "Settings", edit_user_path(current_user) %></button>
+          </div>
         </div>
     </section>
   </aside>
 
-  <div class="row">
-    <div class="span4">...</div>
-    <div class="span8">...</div>
+    <div class="span8">
+    <h2> Articles Authored by <%= @user.name %></h2><hr>
+    
+    <div style="text-align:left">
+          <% for article in @user.articles %> 
+      <p>-><%= link_to article.title, article_path %></p>
+      <%end%>
+
+    </div>
+
   </div>
 
 </div>
