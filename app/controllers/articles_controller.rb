@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = current_user.articles.new(article_params)
-    @article = current_user.articles.create(article_params)
+    # @article = current_user.articles.create(article_params)
 
     respond_to do |format|
       if @article.save
@@ -82,7 +82,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :category, :text, :user_id)
+      params.require(:article).permit(:title, :text, :user_id, :category_ids => [])
     end
     
     def signed_in_user  

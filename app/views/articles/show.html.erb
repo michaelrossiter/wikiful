@@ -13,8 +13,12 @@
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @article.category %>
+  <strong>Categories:</strong>
+  <ul>
+    <% @article.categories.each do |c| %>
+      <li><%= c.category_name %></li>
+    <% end %>
+  </ul>
 </p>
 
 <p>
