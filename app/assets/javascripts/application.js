@@ -15,3 +15,15 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+	$('.dropdown-toggle').dropdown();
+});
+
+$(document).on('page:load', function(){
+	initializeDropDown();
+});
+
+function initializeDropDown() {
+	$('.dropdown-toggle').dropdown();
+};

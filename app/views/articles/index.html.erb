@@ -3,14 +3,12 @@
   <div class="row-fluid">
 
     <div class="span4">
-
       <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-        
           Select Category
-          
           <span class="caret"></span>
         </button>
+
       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
@@ -36,17 +34,17 @@
   <div class="row-fluid">
     <div class="span4 well center"><%= sortable "title" %></div>
     <div class="span4 well center"><%= sortable "category" %></div>
-    <div class="span4 well center">Author 
+    <div class="span4 well center"> Author
     
-    <!-- broken code...   <%= link_to "Author", "user.email" %> -->
+<!--<%= link_to "Author", "user.email" %>-->
 
     </div>
   </div>
   
-  <% for article in @articles %>
+  <% @articles.each do |article| %>
   <div class="row-fluid">
-    <div class="span4"><%= link_to article.title, article_path(:id) %></div>
-    <div class="span4 center"><%= article.category %></div>
+    <div class="span4"><%= link_to article.title, article_path(article) %></div>
+    <div class="span4 center"><%= @articles_category %></div>
     <div class="span4 center"><%= article.user.name %></div>
     </div>
   <hr>

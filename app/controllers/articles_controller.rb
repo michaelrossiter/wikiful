@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.order(sort_column + " " + sort_direction)
     # @articles_category = Article.order(:category)
+    @articles_category = Article.order(:category)
     @categories = Category.all
     @users = User.all
   end
