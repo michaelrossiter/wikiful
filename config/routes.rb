@@ -1,9 +1,9 @@
 Casevids::Application.routes.draw do
   
   resources :articles
-  resources :vids
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :categories
 
   root  'static_pages#home'
   

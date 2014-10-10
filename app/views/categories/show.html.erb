@@ -1,0 +1,39 @@
+  <div class="row-fluid">
+
+<div class="span4">
+	<i> There are <b><%= @category.articles.count %> articles</b> filed under <%= @category.name %></i>
+</div>
+
+  <div class="span4">
+    Add pagination here
+  </div>
+      <div class="span4 btn-group"> 
+        <div class="pull-right"><button type="button" class="btn btn-primary"><%= link_to 'Contribute a New Article', new_article_path %> </btn></div>
+      </div>
+  </div>
+
+<h1><%= @category.name %>&nbsp; Articles</h1>
+
+
+<hr>
+  <div class="row-fluid">
+    <div class="span4 well center">Title</div>
+    <div class="span4 well center">Category</div>
+    <div class="span4 well center">User</div>
+  </div>
+ <hr>
+
+  <% @category.articles.each do |article| %>
+  <div class="row-fluid">
+    <div class="span4"><%= link_to article.title, article_path(article) %></div>
+    <div class="span4 center">
+    
+            <% article.categories.each do |category| %>
+               <button class="btn"><%= category.name %> </button>
+            <% end %>
+
+    </div>
+    <div class="span4 center"><%= link_to article.user.name, user_path(article) %></div>
+    </div>
+  <hr>
+  <% end %>

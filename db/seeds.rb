@@ -12,20 +12,20 @@
 
 # Create 8 seed categories
 categories = Category.create([
-		{ category_name: 'History'}, {category_name: 'Biology'}, {category_name: 'Literature'},
-		{ category_name: 'Mathematics'}, { category_name: 'Music Theory'}, { category_name: 'Computer Science'},
-		{ category_name: 'Sociology'}, {category_name: 'Chemistry'}
+		{ name: 'History'}, {name: 'Biology'}, {name: 'Literature'},
+		{ name: 'Mathematics'}, { name: 'Music Theory'}, { name: 'Computer Science'},
+		{ name: 'Sociology'}, {name: 'Chemistry'}
 	])
 
 # create 50 articles, with random titles, 250 words of content, and
 # randomly assign one of the categories above to each article
-
 for i in 0..49
-	title = Faker::Lorem.sentence(rand(2..10)).chomp('.')
+	title = Faker::Lorem.sentence(rand(2..5)).chomp('.')
 	text = Faker::Lorem.paragraph(word_count=250)
-	user = rand(1..40)
 
-	# randomly assign one of the categories we just created 
-	category = Category.first(offset: rand(Category.count)) 
-	a = Article.create(title: title, category: category, text: text, user_id: user)
+	# Randomly assign one of the categories we just created.
+  # The 'sample' method selects a random item from a collection.
+	user = User.all.sample
+	category = Category.all.sample
+	a = user.articles.create(title: title, text: text, categories: [category,])
 end

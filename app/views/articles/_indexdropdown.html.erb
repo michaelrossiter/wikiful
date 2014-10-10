@@ -1,0 +1,18 @@
+  <div class="span4">
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+          Select Category
+          <span class="caret"></span>
+        </button>
+
+      <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+        <% @categories.each do |category| %>
+
+        <li role="presentation">
+            <%= link_to category.name, category, :role => "menuitem", :tabindex => "-1" %>
+        </li>
+        
+        <% end %>
+      </ul>
+    </div>
+  </div>

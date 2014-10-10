@@ -25,10 +25,10 @@
 
   <div class="field">
       <%= f.label 'File under at least one category' %>
-      <% Category.all.order(category_name: :asc).each do |category| %>
+      <% Category.all.order(name: :asc).each do |category| %>
         <div>
           <%= check_box_tag "article[category_ids][]", category.id %>
-          <%= category.category_name %>
+          <%= category.name %>
         </div>
       <% end %>
   </div>

@@ -9,47 +9,37 @@ class ArticlesController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   def index
-    @articles = Article.order(sort_column + " " + sort_direction)
-    # @articles_category = Article.order(:category)
-    @articles_category = Article.order(:category)
-    @categories = Category.all
+    @articles = Article.paginate(:page => params[:page]).order(sort_column + " " + sort_direction)
     @users = User.all
+    @categories = Category.all.order(:name)
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @article = Article.find(params[:id])
   end
 
   # GET /articles/new
   def new
- # HEAD
-    @user = current_user
     @article = current_user.articles.new
   end
 
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
-
   end
 
   # POST /articles
   # POST /articles.json
   def create
-    @article = current_user.articles.new(article_params)
-    @article = current_user.articles.create(article_params)
-
-    respond_to do |format|
+      @article = current_user.articles.new(article_params)
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @article }
+        redirect_to @article, notice: 'Article was successfully created.'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        render 'new'
       end
-    end
-  end
+   end
 
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
@@ -83,7 +73,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :category, :text, :user_id)
+      params.require(:article).permit(:title, :text, :user_id, :category_ids => [])
     end
     
     def signed_in_user  
