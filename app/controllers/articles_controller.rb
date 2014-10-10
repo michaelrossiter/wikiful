@@ -88,7 +88,7 @@ class ArticlesController < ApplicationController
     end
 
     def check_auth
-      if session[:user_id] != @article.user_id
+      if current_user.id != @article.user_id
         flash[:notice] = "Sorry, you cannot edit this article."
         redirect_to(articles_path)
       end
