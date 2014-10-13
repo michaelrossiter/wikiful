@@ -25,7 +25,7 @@
     
     <div style="text-align:left">
           <% for article in @user.articles %> 
-      <p>-><%= link_to article.title, article_path %></p>
+      <p>-><%= link_to article.title, article_path(article) %></p>
       <%end%>
 
     </div>
