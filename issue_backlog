@@ -19,7 +19,6 @@ user#show -> RESOLVED
 -not able to show a list of the user's posts...RESOLVED
 -the way a user's posts is show is UGLY...RESOLVED
 
-
 To Do:
 -Make the application data model work -> COMPLETE
 -Make pagination work - kaminari if will_paginate won't do it -> MOSTLY COMPLETE
